@@ -13,7 +13,7 @@ while true == 1:
         if os.path.exists(id + '.txt'):
             f = open(id + '.txt', 'r')
             lines = f.readlines()
-            print(str(lines) + "pips savings in account")
+            print(lines + "pips savings in account")
 
         else:
             print("no existing id")
