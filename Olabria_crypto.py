@@ -24,24 +24,28 @@ while true == 1:
 
 
             if func == ('1'):
-                amount = input("How much would you like to exchange? ")
-                userx = input("Please type the citizen id of the person to exchange with: ")
-                f = open(userx + '.txt', 'r')
-                savingsuserx = f.read()
-                f.close()
+                if int(usersavings) > 0:
+                    amount = input("How much would you like to exchange? ")
+                    if amount < int(usersavings):
+                        userx = input("Please type the citizen id of the person to exchange with: ")
+                        f = open(userx + '.txt', 'r')
+                        savingsuserx = f.read()
+                        f.close()
 
-                f = open(userx + '.txt', 'w')
-                addition = int(savingsuserx) + int(amount)
-                f.write(str(addition))
-                f.close
+                        f = open(userx + '.txt', 'w')
+                        addition = int(savingsuserx) + int(amount)
+                        f.write(str(addition))
+                        f.close
 
-                f = open(id + '.txt', 'w')
-                deduct = int(usersavings) - int(amount)
-                f.write(str(deduct))
-                f.close
-
-                print("transferred " + amount + " oad from " + id + " to " + userx)
-
+                        f = open(id + '.txt', 'w')
+                        deduct = int(usersavings) - int(amount)
+                        f.write(str(deduct))
+                        f.close
+                        print("transferred " + amount + " oad from " + id + " to " + userx)
+                    else:
+                        print("Selected amount higher than savings balance")
+                else:
+                    print("Not enough savings in account...")
 
             if func == ('2'):
                 tax = input("This months tax is " + str(taxamount) + " oad. Ready to pay? ")
