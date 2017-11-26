@@ -1,10 +1,16 @@
 import time
 import os
+from os import getcwd
 import sys
 import random
 import requests
+
 taxamount = 49
 true = 1
+url = "https://github.com/James-Wetton/Olabria"
+directory = getcwd()
+
+
 while true == 1:
     try:
         aud = 1
@@ -12,6 +18,7 @@ while true == 1:
 
         id = input("Citizen id: ")
         if os.path.exists(id + '.txt'):
+            filename = directory + (id + '.txt')
             f = open(id + '.txt', 'r')
             usersavings = str(f.readline())
             print('\n \n')
@@ -26,7 +33,7 @@ while true == 1:
             if func == ('1'):
                 if int(usersavings) > 0:
                     amount = input("How much would you like to exchange? ")
-                    if amount < int(usersavings):
+                    if int(amount) < int(usersavings):
                         userx = input("Please type the citizen id of the person to exchange with: ")
                         f = open(userx + '.txt', 'r')
                         savingsuserx = f.read()
